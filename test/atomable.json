@@ -1,0 +1,44 @@
+{
+  "/test": {
+    "post": {
+      "module": "test.microservice",
+      "parameters": [
+        {
+          "in": "body",
+          "name": "bodyValue",
+          "required": false
+        },
+        {
+          "in": "query",
+          "name": "queryValue"
+        },
+        {
+          "in": "headers",
+          "name": "*",
+          "required": true
+        }
+      ]
+    }
+  },
+  "/testPromise": {
+    "get": {
+      "module": "testPromise.microservice",
+      "parameters": [
+        {
+          "in": "body",
+          "name": "bodyValue",
+          "required": false
+        },
+        {
+          "in": "query",
+          "name": "queryValue"
+        },
+        {
+          "in": "headers",
+          "name": "*",
+          "required": true
+        }
+      ]
+    }
+  }
+}
