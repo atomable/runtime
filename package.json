@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/atomable/runtime",
   "description": "Runtime for atomable's serverless microservice framework.",
+  "main": "src/runtime.js",
   "scripts": {
     "postinstall": "npm install -g babel-cli",
     "test": "mocha --recursive --require babel-register --require babel-polyfill"
