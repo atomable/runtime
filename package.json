@@ -6,7 +6,6 @@
   "main": "dist/runtime.js",
   "scripts": {
     "compile": "babel src --out-dir dist --minified",
-    "postinstall": "npm install -g babel-cli",
     "test": "mocha --recursive --require babel-register --require babel-polyfill"
   },
   "author": "gumarm",
