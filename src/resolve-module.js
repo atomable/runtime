@@ -14,4 +14,4 @@ export const resolveModule = (method, event, basePath) => {
   } catch (err) {
     return Result(method ? { status: 500, message: 'unknown error occured' } : { status: 404, message: 'not found' });
   }
-}
+};

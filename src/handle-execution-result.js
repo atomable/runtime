@@ -2,7 +2,6 @@
 /* global module */
 'use strict';
 
-require('babel-polyfill');
 import { Result } from './result';
 
 const isPromise = (obj) => typeof obj !== 'undefined' && typeof obj.then === 'function';
@@ -16,14 +15,14 @@ const buildFailureResponse = (err) => {
 };
 
 export const handleExecutionResult = async (moduleExecutor) => {
-  try {
+//  try {
     const result = moduleExecutor();
     if (isPromise(result)) {
       return buildSuccessResponse(await result);
     } else {
       return buildSuccessResponse(result);
     }
-  } catch (err) {
-    return buildFailureResponse(err);
-  }
+//  } catch (err) {
+//    return buildFailureResponse(err);
+//  }
 };

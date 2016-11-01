@@ -3,7 +3,7 @@
 'use strict';
 
 import { router } from './router';
-import { buildEvent } from './buildEvent';
+import { buildEvent } from './build-event';
 
 module.exports.main = (call, context, callback) => {
   const basePath = process.cwd() + '\\src\\';

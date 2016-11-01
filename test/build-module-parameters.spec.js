@@ -4,7 +4,7 @@
 
 import should from 'should';
 
-import { buildModuleParameters } from '../src/buildModuleParameters';
+import { buildModuleParameters } from './.src/build-module-parameters';
 
 describe('build parameters tests', () => {
   it('returns param if exists', () => {

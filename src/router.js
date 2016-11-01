@@ -4,13 +4,13 @@
 
 import { Maybe } from 'liftjs';
 import { Result } from './result';
-import { resolveModule } from './resolveModule';
-import { resolveRoute } from './resolveRoute';
-import { validateRequiredParameters } from './validateRequiredParameters';
-import { buildModuleParameters } from './buildModuleParameters';
-import { handleExecutionResult } from './handleExecutionResult';
+import { resolveModule } from './resolve-module';
+import { resolveRoute } from './resolve-route';
+import { validateRequiredParameters } from './validate-required-parameters';
+import { buildModuleParameters } from './build-module-parameters';
+import { handleExecutionResult } from './handle-execution-result';
 
-export const router = async (config, event, basePath) => {
+export const router = async function (config, event, basePath) {
   return Result(resolveRoute(config, event))
     .map(route => validateRequiredParameters(route, event))
     .map(route => buildModuleParameters(route, event))

@@ -22,7 +22,7 @@
   },
   "/testPromise": {
     "get": {
-      "module": "testPromise.microservice",
+      "module": "test-promise.microservice",
       "parameters": [
         {
           "in": "body",
