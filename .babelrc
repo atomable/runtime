@@ -5,6 +5,12 @@
   "plugins": [
     "syntax-async-functions",
     "transform-regenerator",
-    "transform-runtime"
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": false
+      }
+    ]
   ]
 }
