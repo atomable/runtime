@@ -4,16 +4,16 @@
 
 import should from 'should';
 
-import { router } from './.src/router';
+import { router } from '../dist/router';
 
 const config = require('./mock/atomable.json');
 
 describe('router tests', () => {
   it('should return 404 when path not in config', () => {
-    return router(config, { path: '/', method: 'POST', params: {} },  __dirname + '/mock/')
+    return router(config, { path: '/', method: 'POST', params: {} }, __dirname + '/mock/')
       .then(res => {
         res.should.be.eql({ status: 404, message: 'not found' });
-      })
+      });
   });
 
   it('should return 404 when method not in config', () => {

@@ -7,7 +7,7 @@ import { buildEvent } from './build-event';
 
 module.exports.main = (call, context, callback) => {
   const basePath = process.cwd() + '\\src\\';
-  router(require(basePath + 'atomable.json'), buildEvent(call), basePath)
+  router('', buildEvent(call), basePath)
     .then(res => callback(null, res))
     .catch(res => callback(null, res));
 };
