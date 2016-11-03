@@ -1,5 +1,3 @@
-'use strict';
-
 import { Monad } from 'liftjs';
 
 const isNone =

@@ -1,5 +1,3 @@
-'use strict';
-
 export const buildEvent = (call) => {
   return {
     path: call.path,

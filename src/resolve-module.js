@@ -1,5 +1,3 @@
-'use strict';
-
 import { Maybe } from 'liftjs';
 import { Result } from './result';
 

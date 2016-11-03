@@ -1,2 +1,2 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});var buildEvent=exports.buildEvent=function buildEvent(call){return{path:call.path,method:call.method,params:{body:call.body,headers:call.headers,query:call.query}}};
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});var buildEvent=exports.buildEvent=function buildEvent(call){return{path:call.path,method:call.method,params:{body:call.body,headers:call.headers,query:call.query}}};
 //# sourceMappingURL=build-event.js.map

@@ -1,5 +1,3 @@
-'use strict';
-
 import { Result } from './result';
 
 const isPromise = (obj) => typeof obj !== 'undefined' && typeof obj.then === 'function';

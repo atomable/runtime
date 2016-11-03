@@ -1,5 +1,3 @@
-'use strict';
-
 import { router } from './router';
 import { buildEvent } from './build-event';
 
