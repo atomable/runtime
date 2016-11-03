@@ -6,7 +6,7 @@ import should from 'should';
 
 import { buildModuleParameters } from '../dist/build-module-parameters';
 
-describe('build parameters tests', () => {
+describe('build module parameters', () => {
   it('returns param if exists', () => {
     buildModuleParameters({ parameters: [{ in: 'body', name: 'val' }] }, { method: 'GET', params: { body: { val: 'test' } } }).params.should.eql(['test']);
   });

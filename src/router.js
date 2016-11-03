@@ -10,7 +10,8 @@ export const router = async function (config, event, basePath) {
   return Result(resolveRoute(config, event))
     .map(route => validateRequiredParameters(route, event))
     .map(route => buildModuleParameters(route, event))
-    .map(r => () => resolveModule(r.route, event, basePath)(r.params))
+    .map(res => resolveModule(res.route, res.params, basePath))
+    .map(res => () => res.module(...res.params))
     .map(executor => handleExecutionResult(executor))
     .get();
 };
