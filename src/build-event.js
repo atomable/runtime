@@ -1,5 +1,3 @@
-/* jshint -W097, esversion: 6, strict: true, node: true */
-/* global module */
 'use strict';
 
 export const buildEvent = (call) => {

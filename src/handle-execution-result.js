@@ -1,5 +1,3 @@
-/* jshint -W097, esversion: 6, strict: true, node: true */
-/* global module */
 'use strict';
 
 import { Result } from './result';
@@ -15,14 +13,14 @@ const buildFailureResponse = (err) => {
 };
 
 export const handleExecutionResult = async (moduleExecutor) => {
-//  try {
+  try {
     const result = moduleExecutor();
     if (isPromise(result)) {
       return buildSuccessResponse(await result);
     } else {
       return buildSuccessResponse(result);
     }
-//  } catch (err) {
-//    return buildFailureResponse(err);
-//  }
+  } catch (err) {
+    return buildFailureResponse(err);
+  }
 };

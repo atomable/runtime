@@ -1,5 +1,3 @@
-/* jshint -W097, esversion: 6, strict: true, node: true */
-/* global module */
 'use strict';
 
 import { Maybe } from 'liftjs';
@@ -8,7 +6,7 @@ import { Result } from './result';
 const isRequired = routeParam =>
   Maybe(routeParam).map(value => value.required).or(true);
 
-const isMissing = (routeParam, event) => 
+const isMissing = (routeParam, event) =>
   Maybe(event.params[routeParam.in])
     .map(x => x[routeParam.name])
     .map(x => false)
