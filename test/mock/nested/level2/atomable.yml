@@ -1,0 +1,12 @@
+microservice: null
+  handler: null.microservice
+  https:
+    - path: null
+      method: get
+      parameters:
+      - in: query
+          name: *
+      - in: body
+          name: *
+      - in: headers
+          name: *

@@ -1,0 +1,19 @@
+microservice: test
+handler: 'test-promise.microservice'
+https:
+  - path: testPromise
+    method: get
+    parameters:
+    - in: query
+      name: queryValue
+    - in: body
+      name: bodyValue
+      required: false
+    - in: headers
+      name: '*'
+      required: true
+  - path: other
+    method: get
+    parameters:
+    - in: body
+      name: bodyValue

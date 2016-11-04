@@ -1,8 +1,4 @@
-/* jshint -W097, esversion: 6, strict: true, node: true */
-/* global module, describe, it */
-'use strict';
-
-import should from 'should';
+import { should } from 'should';
 
 import { router } from '../dist/router';
 

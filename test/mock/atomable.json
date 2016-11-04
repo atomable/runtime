@@ -1,7 +1,7 @@
 {
   "/test": {
     "post": {
-      "module": "test.microservice",
+      "module": "normal/test.microservice",
       "parameters": [
         {
           "in": "body",
@@ -22,7 +22,7 @@
   },
   "/testPromise": {
     "get": {
-      "module": "test-promise.microservice",
+      "module": "promise/test-promise.microservice",
       "parameters": [
         {
           "in": "body",

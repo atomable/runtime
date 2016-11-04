@@ -1,7 +1,3 @@
-/* jshint -W097, esversion: 6, strict: true, node: true */
-/* global module, describe, it */
-'use strict';
-
 import should from 'should';
 
 import { buildModuleParameters } from '../dist/build-module-parameters';

@@ -1,0 +1,19 @@
+microservice: test
+handler: 'test.microservice'
+https:
+  - path: test
+    method: post
+    parameters:
+    - in: query
+      name: queryValue
+    - in: body
+      name: bodyValue
+      required: false
+    - in: headers
+      name: '*'
+      required: true
+  - path: other
+    method: get
+    parameters:
+    - in: body
+      name: bodyValue
