@@ -1,72 +1,48 @@
 [
   {
     "microservice": "test",
-    "https": [
-      {
-        "path": "test",
-        "method": "post",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "bodyValue",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "queryValue"
-          },
-          {
-            "in": "headers",
-            "name": "*",
-            "required": true
-          }
-        ]
-      },
-      {
-        "path": "other",
-        "method": "get",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "bodyValue"
-          }
-        ]
-      }
-    ]
+    "https": {
+      "path": "test",
+      "method": "post",
+      "parameters": [
+        {
+          "in": "body",
+          "name": "bodyValue",
+          "required": false
+        },
+        {
+          "in": "query",
+          "name": "queryValue"
+        },
+        {
+          "in": "headers",
+          "name": "*",
+          "required": true
+        }
+      ]
+    }
   },
   {
     "microservice": "testPromise",
-    "https": [
-      {
-        "path": "testPromise",
-        "method": "get",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "bodyValue",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "queryValue"
-          },
-          {
-            "in": "headers",
-            "name": "*",
-            "required": true
-          }
-        ]
-      },
-      {
-        "path": "other",
-        "method": "get",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "bodyValue"
-          }
-        ]
-      }
-    ]
+    "https": {
+      "path": "testPromise",
+      "method": "get",
+      "parameters": [
+        {
+          "in": "body",
+          "name": "bodyValue",
+          "required": false
+        },
+        {
+          "in": "query",
+          "name": "queryValue"
+        },
+        {
+          "in": "headers",
+          "name": "*",
+          "required": true
+        }
+      ]
+    }
   }
 ]

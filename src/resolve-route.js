@@ -5,15 +5,10 @@ const routeMatchesEvent = (route, event) =>
   route.path.toLowerCase() === event.path.toLowerCase() &&
     route.method.toLowerCase() === event.method.toLowerCase();
 
-const extractRoute = (config, event) =>
-  Maybe(config.https)
-    .map(routes => routes.find(route => routeMatchesEvent(route, event)))
-    .get();
-
 export const resolveRoute = (configs, event) => {
   const config = configs.filter(config => {
     return Maybe(config.https)
-      .map(routes => routes.some(route => routeMatchesEvent(route, event)))
+      .map(route => routeMatchesEvent(route, event))
       .or(false);
   });
 
@@ -24,7 +19,7 @@ export const resolveRoute = (configs, event) => {
   }
 
   const matchedConfig = config[0];
-  const matchedRoute = extractRoute(matchedConfig, event);
+  const matchedRoute = matchedConfig.https;
 
   return Object.assign({ handler: matchedConfig.handler, basePath: matchedConfig.basePath, }, matchedRoute);
 };
