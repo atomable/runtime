@@ -89,9 +89,8 @@ If you feel like contributing, one thing you have to know is we hate classes, th
 ## Roadmap
 
 Here is a list of things we want to do in this project, feel free to help us out!
-
-- Add parameter validators (stringNotEmpty, stringLength, intBetween, etc. That sort of thing.)
-- 
+- Add parameter validators (stringNotEmpty, stringLength, intBetween, etc. That sort of thing...)
+- Support multiple cloud providers
 
 ## Links
 - [atomable.io](atomable.io)
