@@ -66,7 +66,8 @@ export const handler = (event, context, callback) => {
 // firstName is guaranteed not to be null since it is required by default
 // since we configured lastName to not be required, it may be undefined here
 module.exports.proton = (firstName, lastName) {
-  return { status: 200, message: `Hello ${firstName} ${lastName}` }; // you can also return a promise, we will handle the result correctly.
+  // you can also return a promise, we will handle the result correctly.
+  return { status: 200, message: `Hello ${firstName} ${lastName}` };
 };
 ```
 
