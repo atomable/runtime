@@ -7,9 +7,18 @@ import { Result } from './result';
 
 let configs = [];
 
-module.exports.main = (call, context, callback) => {
+const register = (func, config) => {
+  let configToAdd = Object.assign({}, config);
+  configToAdd.handler = func;
+
+  configs.push(configToAdd);
+};
+
+const handle = (call, context, callback) => {
   router(configs, buildEvent(call))
     .then(res => callback(null, res))
     .catch(res => callback(null, res));
 };
 
+export { register, handle };
+export default handle;
