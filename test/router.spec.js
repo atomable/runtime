@@ -3,8 +3,8 @@ import { should } from 'should';
 import { router } from '../dist/router';
 
 let config = require('./mock/atomable.json');
-config[0].handler = require(__dirname + '/mock/normal/test.microservice');
-config[1].handler = require(__dirname + '/mock/promise/test-promise.microservice');
+config[0].handler = require(__dirname + '/mock/test.microservice');
+config[1].handler = require(__dirname + '/mock/test-promise.microservice');
 
 describe('router tests', () => {
   it('should return 404 when path not in config', () => {
