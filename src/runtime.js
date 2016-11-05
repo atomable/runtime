@@ -1,9 +1,5 @@
 import { router } from './router';
 import { buildEvent } from './build-event';
-import { findConfigFiles } from './find-config-files';
-import { extractConfig } from './extract-config';
-import { mergeConfigs } from './merge-configs';
-import { Result } from './result';
 
 let configs = [];
 
