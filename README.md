@@ -95,6 +95,7 @@ Here is a list of things we want to do in this project, feel free to help us out
 
 ## Links
 - [atomable.io](atomable.io)
+- [npm](https://www.npmjs.com/package/atomable-runtime)
 
 ## License
 
