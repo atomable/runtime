@@ -5,7 +5,7 @@ const isRequired = routeParam =>
   Maybe(routeParam).map(value => value.required).or(true);
 
 const isMissing = (routeParam, event) =>
-  Maybe(event.params[routeParam.in])
+  Maybe(event.parameters[routeParam.in])
     .map(x => x[routeParam.name])
     .map(x => false)
     .or(true);

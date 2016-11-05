@@ -1,14 +1,14 @@
 import { Maybe } from 'liftjs';
 import { Result } from './result';
 
-export const resolveModule = (method, params, basePath) => {
+export const resolveModule = (route, parameters) => {
   try {
-    return Maybe(method)
-      .map(method => require(basePath + method.module))
+    return Maybe(route)
+      .map(route => require(route.basePath + route.handler))
       .else(Result({ status: 404, message: 'module not found' }))
-      .map(module => { return { module, params } })
+      .map(module => { return { module, parameters } })
       .get();
   } catch (err) {
-    return method ? { status: 500, message: 'unknown error occured' } : { status: 404, message: 'not found' };
+    return route ? { status: 500, message: err } : { status: 404, message: 'not found' };
   }
 };

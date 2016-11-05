@@ -17,13 +17,13 @@ describe('merge config', () => {
               method: 'post',
               parameters: [
                 {
-                  in: 'query',
-                  name: 'queryValue'
-                },
-                {
                   in: 'body',
                   name: 'bodyValue',
                   required: false
+                },
+                {
+                  in: 'query',
+                  name: 'queryValue'
                 },
                 {
                   in: 'headers',
@@ -55,13 +55,13 @@ describe('merge config', () => {
               method: 'get',
               parameters: [
                 {
-                  in: 'query',
-                  name: 'queryValue'
-                },
-                {
                   in: 'body',
                   name: 'bodyValue',
                   required: false
+                },
+                {
+                  in: 'query',
+                  name: 'queryValue'
                 },
                 {
                   in: 'headers',

@@ -4,11 +4,11 @@ https:
   - path: testPromise
     method: get
     parameters:
-    - in: query
-      name: queryValue
     - in: body
       name: bodyValue
       required: false
+    - in: query
+      name: queryValue
     - in: headers
       name: '*'
       required: true
