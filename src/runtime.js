@@ -12,8 +12,8 @@ const register = (func, config) => {
 
 const handle = (call, context, callback) => {
   router(configs, buildEvent(call))
-    .then(res => callback(res))
-    .catch(res => callback(res));
+    .then(res => callback(null, res))
+    .catch(res => callback(null, res));
 };
 
 export { register, handle };
