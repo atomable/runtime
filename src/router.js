@@ -1,6 +1,5 @@
 import { Maybe } from 'liftjs';
 import { Result } from './result';
-import { resolveModule } from './resolve-module';
 import { resolveRoute } from './resolve-route';
 import { validateRequiredParameters } from './validate-required-parameters';
 import { buildModuleParameters } from './build-module-parameters';

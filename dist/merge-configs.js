@@ -1,2 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:true});var mergeConfigs=exports.mergeConfigs=function mergeConfigs(configs){return configs.reduce(function(a,b){return a.concat(b)},[])};
-//# sourceMappingURL=merge-configs.js.map
