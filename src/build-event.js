@@ -1,7 +1,7 @@
 export const buildEvent = (call) => {
   return {
-    path: call.path.replace(/^\/|\/$/g, '').toLowerCase(), // remove first and last slash
-    method: call.method.toLowerCase(),
+    path: call.path.replace(/^\/|\/$/g, '').toLowerCase(),
+    method: call.httpMethod !== undefined ? call.httpMethod.toLowerCase() : undefined,
     parameters: {
       body: call.body,
       headers: call.headers,

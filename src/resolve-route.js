@@ -3,7 +3,7 @@ import { Result } from './result';
 
 const routeMatchesEvent = (route, event) =>
   route.path.toLowerCase() === event.path.toLowerCase() &&
-    route.method.toLowerCase() === event.method.toLowerCase();
+    (event.method === undefined ? true : route.method.toLowerCase() === event.method.toLowerCase());
 
 export const resolveRoute = (configs, event) => {
   const config = configs.filter(config => {

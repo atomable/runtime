@@ -1,2 +1,2 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});var buildEvent=exports.buildEvent=function buildEvent(call){return{path:call.path.replace(/^\/|\/$/g,'').toLowerCase(),method:call.method.toLowerCase(),parameters:{body:call.body,headers:call.headers,query:call.query}}};
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});var buildEvent=exports.buildEvent=function buildEvent(call){return{path:call.path.replace(/^\/|\/$/g,'').toLowerCase(),method:call.httpMethod!==undefined?call.httpMethod.toLowerCase():undefined,parameters:{body:call.body,headers:call.headers,query:call.query}}};
 //# sourceMappingURL=build-event.js.map

@@ -18,14 +18,14 @@ describe('router tests', () => {
     return router(config, { path: 'test', method: 'get', parameters: {} })
       .then(res => {
         res.should.be.eql({ status: 404, message: 'not found' });
-      })
+      });
   });
 
   it('should return 400 when required param missing', () => {
     return router(config, { path: 'test', method: 'post', parameters: {} })
       .then(res => {
         res.should.be.eql({ status: 400, message: 'missing required parameter' });
-      })
+      });
   });
 
   it('should return 200 when all parameters supplied', () => {
@@ -33,7 +33,15 @@ describe('router tests', () => {
     return router(config, { path: 'test', method: 'post', parameters })
       .then(res => {
         res.should.be.eql({ status: 200, result: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
-      })
+      });
+  });
+
+  it('should return 200 when all params supplied and method not in event', () => {
+    const parameters = { body: { bodyValue: 'body' }, query: { queryValue: 'query' }, headers: { test: true, authorization: 'asd' } };
+    return router(config, { path: 'test', method: undefined, parameters })
+      .then(res => {
+        res.should.be.eql({ status: 200, result: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
+      });
   });
 
   it('should return 200 when optional parameters not supplied', () => {
@@ -41,7 +49,7 @@ describe('router tests', () => {
     return router(config, { path: 'test', method: 'post', parameters })
       .then(res => {
         res.should.be.eql({ status: 200, result: { body: {}, query: parameters.query.queryValue, headers: parameters.headers } });
-      })
+      });
   });
 
   it('should return 200 when wildcard not supplied even if required', () => {
@@ -49,7 +57,7 @@ describe('router tests', () => {
     return router(config, { path: 'test', method: 'post', parameters })
       .then(res => {
         res.should.be.eql({ status: 200, result: { body: {}, query: parameters.query.queryValue, headers: {} } });
-      })
+      });
   });
 
   it('should return 200 when all parameters supplied and module returns a promise', () => {
@@ -57,7 +65,7 @@ describe('router tests', () => {
     return router(config, { path: 'testPromise', method: 'get', parameters })
       .then(res => {
         res.should.be.eql({ status: 200, result: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
-      })
+      });
   });
 
   it('should return 200 when optional parameters not supplied and module returns a promise', () => {
@@ -65,6 +73,6 @@ describe('router tests', () => {
     return router(config, { path: 'testPromise', method: 'get', parameters })
       .then(res => {
         res.should.be.eql({ status: 200, result: { body: {}, query: parameters.query.queryValue, headers: parameters.headers } });
-      })
+      });
   });
 });
