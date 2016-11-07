@@ -1,6 +1,6 @@
 import should from 'should';
 
-import { buildModuleParameters } from '../dist/build-module-parameters';
+import { buildModuleParameters } from '../dist/buildModuleParameters';
 
 describe('build module parameters', () => {
   it('returns param if exists', () => {

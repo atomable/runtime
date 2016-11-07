@@ -5,7 +5,10 @@ let configs = [];
 
 const register = (func, config) => {
   let configToAdd = Object.assign({}, config);
-  configToAdd.handler = func;
+  configToAdd.handler = (...args) => {
+    console.log(`Executing ${config.name}. for '${config.https.path}' path`);
+    return func(...args);
+  };
 
   configs.push(configToAdd);
 };
