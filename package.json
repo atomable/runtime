@@ -1,6 +1,6 @@
 {
   "name": "atomable-runtime",
-  "version": "1.0.5-beta",
+  "version": "1.0.0-alpha.1",
   "homepage": "https://github.com/atomable/runtime",
   "description": "Runtime for atomable's serverless microservice framework.",
   "main": "dist/runtime.js",

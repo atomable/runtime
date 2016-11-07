@@ -1,11 +1,11 @@
 export const buildEvent = (call) => {
   return {
     path: call.path.replace(/^\/|\/$/g, '').toLowerCase(),
-    method: call.httpMethod !== undefined ? call.httpMethod.toLowerCase() : undefined,
+    method: call.httpMethod ? null : call.httpMethod.toLowerCase(),
     parameters: {
       body: call.body,
       headers: call.headers,
-      query: call.query
+      query: call.queryStringParameters
     }
   };
 };
