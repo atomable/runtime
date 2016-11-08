@@ -1,8 +1,9 @@
 module.exports = {
   entry: {
-    runtime: './src/runtime.js',
+    runtime: ['./src/runtime.js'],
     router: ['./src/router.js'],
-    buildModuleParameters: ['./src/build-module-parameters.js']
+    buildModuleParameters: ['./src/build-module-parameters.js'],
+    runValidators: ['./src/run-validators.js']
   },
   output: {
     filename: '/[name].js',

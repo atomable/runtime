@@ -1,5 +1,4 @@
 import { Maybe } from 'liftjs';
-import { Result } from './result';
 
 export const buildModuleParameters = (route, event) => {
   return Maybe(route)
