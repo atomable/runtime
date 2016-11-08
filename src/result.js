@@ -5,7 +5,7 @@ const isNone =
     value === null || value === undefined;
 
 export const Result = Monad((monad, value) => {
-  const resultHasStatus = !isNone(value) && value.status !== undefined;
+  const resultHasStatus = !isNone(value) && value.statusCode !== undefined;
   monad.bind = resultHasStatus ? () => monad : monad.bind;
   monad.map = resultHasStatus ? () => monad : monad.map;
   const run = monad.run;

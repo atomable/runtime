@@ -65,7 +65,7 @@ export const handler = runtime.handle;
 // since we configured lastName to not be required, it may be undefined here
 module.exports.proton = (firstName, lastName) {
   // you can also return a promise, we will handle the result correctly.
-  return { status: 200, message: `Hello ${firstName} ${lastName}` };
+  return { statusCode : 200, message: `Hello ${firstName} ${lastName}` };
 };
 ```
 

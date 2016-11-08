@@ -6,7 +6,7 @@ describe('A runtime', () => {
   it('should return error when no config is present', (done) => {
     handle({ path: 'proton/electron', httpMethod: 'post', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ status: 404, message: 'no routes are configured' });
+        data.should.be.eql({ statusCode: 404, message: 'no routes are configured' });
         done();
       } catch (err) {
         done(err);
@@ -27,7 +27,7 @@ describe('A runtime', () => {
 
     handle({ path: 'proton/electron', httpMethod: 'post', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ status: 200, result: 'hello world' });
+        data.should.be.eql({ statusCode: 200, result: 'hello world' });
         done();
       } catch (err) {
         done(err);
@@ -48,7 +48,7 @@ describe('A runtime', () => {
 
     handle({ path: 'throw', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ status: 500, message: 'this exploded' });
+        data.should.be.eql({ statusCode: 500, message: 'this exploded' });
         done();
       } catch (err) {
         done(err);
@@ -58,7 +58,7 @@ describe('A runtime', () => {
 
   it('should use module\'s status code when returned', (done) => {
     register(() => {
-      return { status: 403, message: 'unauthorized' };
+      return { statusCode: 403, message: 'unauthorized' };
     }, {
         "name": "unauthorized",
         "https": {
@@ -69,7 +69,7 @@ describe('A runtime', () => {
 
     handle({ path: 'unauthorized', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ status: 403, message: 'unauthorized' });
+        data.should.be.eql({ statusCode: 403, message: 'unauthorized' });
         done();
       } catch (err) {
         done(err);
@@ -79,7 +79,7 @@ describe('A runtime', () => {
 
   it('should use module\'s status code when thrown', (done) => {
     register(() => {
-      throw { status: 401, message: 'forbidden' };
+      throw { statusCode: 401, message: 'forbidden' };
     }, {
         "name": "forbidden",
         "https": {
@@ -90,7 +90,7 @@ describe('A runtime', () => {
 
     handle({ path: 'forbidden', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ status: 401, message: 'forbidden' });
+        data.should.be.eql({ statusCode: 401, message: 'forbidden' });
         done();
       } catch (err) {
         done(err);

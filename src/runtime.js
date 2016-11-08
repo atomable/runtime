@@ -25,7 +25,7 @@ const handle = (call, context, callback) => {
       .then(res => callback(null, res))
       .catch(res => callback(null, res));
   } else {
-    callback(null, { status: 404, message: 'no routes are configured' });
+    callback(null, { statusCode: 404, message: 'no routes are configured' });
   }
 };
 
