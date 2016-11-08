@@ -3,14 +3,8 @@ import { buildEvent, normalize } from './build-event';
 
 const configs = [];
 
-
 const end = (error, res, callback) => {
   console.log('ATOMABLE END', res);
-  callback(error, res);
-}
-
-const begin = (error, res, callback) => {
-  console.log('Request done.', res);
   callback(error, res);
 }
 
@@ -37,7 +31,7 @@ const handle = (call, context, callback) => {
       .then(res => end(null, res, callback))
       .catch(res => end(null, res, callback));
   } else {
-    end(null, { statusCode: 404, message: 'no routes are configured' }, callback);
+    end(null, { statusCode: 404, body: 'no routes are configured' }, callback);
   }
 };
 

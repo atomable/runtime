@@ -11,21 +11,21 @@ describe('A router', () => {
   it('should return 404 when path not in config', () => {
     return router(config, { path: '', method: 'post', parameters: {} })
       .then(res => {
-        res.should.be.eql({ statusCode: 404, message: 'not found' });
+        res.should.be.eql({ statusCode: 404, body: 'not found' });
       });
   });
 
   it('should return 404 when method not in config', () => {
     return router(config, { path: 'test', method: 'get', parameters: {} })
       .then(res => {
-        res.should.be.eql({ statusCode: 404, message: 'not found' });
+        res.should.be.eql({ statusCode: 404, body: 'not found' });
       });
   });
 
   it('should return 400 when required param missing', () => {
     return router(config, { path: 'test', method: 'post', parameters: {} })
       .then(res => {
-        res.should.be.eql({ statusCode: 400, message: 'missing required parameter' });
+        res.should.be.eql({ statusCode: 400, body: 'missing required parameter' });
       });
   });
 
@@ -40,7 +40,7 @@ describe('A router', () => {
     const parameters = { body: { bodyValue: 'body' }, query: { queryValue: 'query' }, headers: { test: true, authorization: 'asd' } };
     return router(config, { path: 'test', method: 'post', parameters })
       .then(res => {
-        res.should.be.eql({ statusCode: 200, result: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
+        res.should.be.eql({ statusCode: 200, body: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
       });
   });
 
@@ -48,7 +48,7 @@ describe('A router', () => {
     const parameters = { body: { bodyValue: 'body' }, query: { queryValue: 'query' }, headers: { test: true, authorization: 'asd' } };
     return router(config, { path: 'test', method: undefined, parameters })
       .then(res => {
-        res.should.be.eql({ statusCode: 200, result: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
+        res.should.be.eql({ statusCode: 200, body: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
       });
   });
 
@@ -56,7 +56,7 @@ describe('A router', () => {
     const parameters = { query: { queryValue: 'query' }, headers: { test: true } };
     return router(config, { path: 'test', method: 'post', parameters })
       .then(res => {
-        res.should.be.eql({ statusCode: 200, result: { body: {}, query: parameters.query.queryValue, headers: parameters.headers } });
+        res.should.be.eql({ statusCode: 200, body: { body: {}, query: parameters.query.queryValue, headers: parameters.headers } });
       });
   });
 
@@ -64,7 +64,7 @@ describe('A router', () => {
     const parameters = { query: { queryValue: 'query' } };
     return router(config, { path: 'test', method: 'post', parameters })
       .then(res => {
-        res.should.be.eql({ statusCode: 200, result: { body: {}, query: parameters.query.queryValue, headers: {} } });
+        res.should.be.eql({ statusCode: 200, body: { body: {}, query: parameters.query.queryValue, headers: {} } });
       });
   });
 
@@ -72,7 +72,7 @@ describe('A router', () => {
     const parameters = { body: { bodyValue: 'body' }, query: { queryValue: 'query' }, headers: { test: true, authorization: 'asd' } };
     return router(config, { path: 'testPromise', method: 'get', parameters })
       .then(res => {
-        res.should.be.eql({ statusCode: 200, result: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
+        res.should.be.eql({ statusCode: 200, body: { body: parameters.body.bodyValue, query: parameters.query.queryValue, headers: parameters.headers } });
       });
   });
 
@@ -80,7 +80,7 @@ describe('A router', () => {
     const parameters = { query: { queryValue: 'query' }, headers: { test: true } };
     return router(config, { path: 'testPromise', method: 'get', parameters })
       .then(res => {
-        res.should.be.eql({ statusCode: 200, result: { body: {}, query: parameters.query.queryValue, headers: parameters.headers } });
+        res.should.be.eql({ statusCode: 200, body: { body: {}, query: parameters.query.queryValue, headers: parameters.headers } });
       });
   });
 });

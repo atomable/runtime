@@ -13,9 +13,9 @@ export const resolveRoute = (configs, event) => {
   });
 
   if (config.length === 0) {
-    return { statusCode: 404, message: 'not found' };
+    return { statusCode: 404, body: 'not found' };
   } else if (config.length > 1) {
-    return { statusCode: 500, message: 'multiple routes matched' };
+    return { statusCode: 500, body: 'multiple routes matched' };
   }
 
   const matchedConfig = config[0];
