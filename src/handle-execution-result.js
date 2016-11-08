@@ -3,11 +3,11 @@ import { Result } from './result';
 const isPromise = (obj) => typeof obj !== 'undefined' && typeof obj.then === 'function';
 
 const buildSuccessResponse = (result) => {
-  return result.status ? result : { status: 200, result };
+  return result.status ? result : { statusCode: 200, result };
 };
 
 const buildFailureResponse = (err) => {
-  return { status: err.status || 500, message: err.message || err };
+  return { statusCode: err.status || 500, message: err.message || err };
 };
 
 export const handleExecutionResult = async (moduleExecutor) => {
