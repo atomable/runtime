@@ -13,5 +13,6 @@ const isMissing = (routeParam, event) =>
 export const validateRequiredParameters = (route, event) =>
   Maybe(route)
     .map(route => route.parameters)
-    .map(parameters => parameters.some(routeParam => routeParam.name !== '*' && isRequired(routeParam) && isMissing(routeParam, event)) ? null : route)
+    .else(Maybe({}))
+    .map(parameters => parameters.length > 0 && parameters.some(routeParam => routeParam.name !== '*' && isRequired(routeParam) && isMissing(routeParam, event)) ? null : route)
     .or({ status: 400, message: 'missing required parameter' });

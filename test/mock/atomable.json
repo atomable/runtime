@@ -44,5 +44,12 @@
         }
       ]
     }
+  },
+  {
+    "microservice": "testEmpty",
+    "https": {
+      "path": "empty/really",
+      "method": "put"
+    }
   }
 ]

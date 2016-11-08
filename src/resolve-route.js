@@ -19,7 +19,6 @@ export const resolveRoute = (configs, event) => {
   }
 
   const matchedConfig = config[0];
-  const matchedRoute = matchedConfig.https;
 
-  return Object.assign({ handler: matchedConfig.handler, basePath: matchedConfig.basePath, }, matchedRoute);
+  return Object.assign({ handler: matchedConfig.handler }, matchedConfig.https);
 };

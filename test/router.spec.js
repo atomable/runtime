@@ -5,8 +5,9 @@ import { router } from '../dist/router';
 let config = require('./mock/atomable.json');
 config[0].handler = require(__dirname + '/mock/test.microservice');
 config[1].handler = require(__dirname + '/mock/test-promise.microservice');
+config[2].handler = config[0].handler;
 
-describe('router tests', () => {
+describe('A router', () => {
   it('should return 404 when path not in config', () => {
     return router(config, { path: '', method: 'post', parameters: {} })
       .then(res => {
@@ -25,6 +26,13 @@ describe('router tests', () => {
     return router(config, { path: 'test', method: 'post', parameters: {} })
       .then(res => {
         res.should.be.eql({ status: 400, message: 'missing required parameter' });
+      });
+  });
+
+  it('should return 200 when no params needed', () => {
+    return router(config, { path: 'empty/really', method: 'put' })
+      .then(res => {
+        res.status.should.be.eql(200);
       });
   });
 

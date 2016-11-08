@@ -3,7 +3,7 @@ import { Result } from './result';
 const isPromise = (obj) => typeof obj !== 'undefined' && typeof obj.then === 'function';
 
 const buildSuccessResponse = (result) => {
-  return { status: 200, result };
+  return result.status ? result : { status: 200, result };
 };
 
 const buildFailureResponse = (err) => {
