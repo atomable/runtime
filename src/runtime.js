@@ -1,13 +1,24 @@
 import { router } from './router';
 import { buildEvent, normalize } from './build-event';
 
-let configs = [];
+const configs = [];
+
+
+const end = (error, res, callback) => {
+  console.log('ATOMABLE END', res);
+  callback(error, res);
+}
+
+const begin = (error, res, callback) => {
+  console.log('Request done.', res);
+  callback(error, res);
+}
 
 const register = (func, config) => {
   let configToAdd = Object.assign({}, config);
 
   configToAdd.handler = (...args) => {
-    console.log(`Executing '${config.name}' for '${config.https.path}' path`);
+    console.log('ATOMABLE EXECUTING', JSON.stringify({ name: configToAdd.name, path: configToAdd.https.path }, null, ' '));
     return func(...args);
   };
 
@@ -20,12 +31,13 @@ const register = (func, config) => {
 };
 
 const handle = (call, context, callback) => {
+  console.log('ATOMABLE START', JSON.stringify(call, null, ' '), JSON.stringify(context, null, ' '));
   if (configs && configs.length > 0) {
     router(configs, buildEvent(call))
-      .then(res => callback(null, res))
-      .catch(res => callback(null, res));
+      .then(res => end(null, res, callback))
+      .catch(res => end(null, res, callback));
   } else {
-    callback(null, { statusCode: 404, message: 'no routes are configured' });
+    end(null, { statusCode: 404, message: 'no routes are configured' }, callback);
   }
 };
 
