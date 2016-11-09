@@ -1,4 +1,6 @@
-import { should } from 'should';
+/* global it describe */
+
+import should from 'should'; //eslint-disable-line
 
 import { register, handle } from '../dist/runtime';
 
@@ -15,14 +17,14 @@ describe('A runtime', () => {
   });
 
   it('should run func', (done) => {
-    register(() => {
-      return 'hello world';
-    }, {
-        "name": "proton",
-        "https": {
-          "path": "/proton/electron/",
-          "method": "post"
-        }
+    register(() =>
+      'hello world',
+      {
+        name: 'proton',
+        https: {
+          path: '/proton/electron/',
+          method: 'post',
+        },
       });
 
     handle({ path: 'proton/electron', httpMethod: 'post', parameters: {} }, {}, (error, data) => {
@@ -38,12 +40,13 @@ describe('A runtime', () => {
   it('should return error when module throws', (done) => {
     register(() => {
       throw new Error('this exploded');
-    }, {
-        "name": "explosion",
-        "https": {
-          "path": "throw",
-          "method": "get"
-        }
+    },
+      {
+        name: 'explosion',
+        https: {
+          path: 'throw',
+          method: 'get',
+        },
       });
 
     handle({ path: 'throw', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
@@ -57,14 +60,14 @@ describe('A runtime', () => {
   });
 
   it('should use module\'s status code when returned', (done) => {
-    register(() => {
-      return { statusCode: 403, body: 'unauthorized' };
-    }, {
-        "name": "unauthorized",
-        "https": {
-          "path": "unauthorized",
-          "method": "get"
-        }
+    register(() =>
+      ({ statusCode: 403, body: 'unauthorized' }),
+      {
+        name: 'unauthorized',
+        https: {
+          path: 'unauthorized',
+          method: 'get',
+        },
       });
 
     handle({ path: 'unauthorized', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
@@ -79,13 +82,14 @@ describe('A runtime', () => {
 
   it('should use module\'s status code when thrown', (done) => {
     register(() => {
-      throw { statusCode: 401, message: 'forbidden' };
-    }, {
-        "name": "forbidden",
-        "https": {
-          "path": "forbidden",
-          "method": "get"
-        }
+      throw { statusCode: 401, message: 'forbidden' }; // eslint-disable-line
+    },
+      {
+        name: 'forbidden',
+        https: {
+          path: 'forbidden',
+          method: 'get',
+        },
       });
 
     handle({ path: 'forbidden', httpMethod: 'get', parameters: {} }, {}, (error, data) => {

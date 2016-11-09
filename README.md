@@ -1,3 +1,6 @@
+[![atomable](https://img.shields.io/badge/atomable.io--blue.svg)](http://atomable.io)
+[![Build Status](https://travis-ci.org/atomable/runtime.svg?branch=master)](https://travis-ci.org/atomable/runtime)
+
 ## atomable runtime
 
 This is the runtime for the atomable serverless microservices framework. Our goal is to make your serverless life easier!
