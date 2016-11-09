@@ -14,7 +14,7 @@ https://github.com/atomable/runtime
 
 ## Installation
 
-### [npm](https://www.npmjs.com/package/liftjs)
+### [npm](https://www.npmjs.com/package/atomable-runtime)
 ```
 npm install atomable-runtime
 ```
