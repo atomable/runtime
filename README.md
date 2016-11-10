@@ -9,8 +9,8 @@ The best way to use this runtime is by using our insanely powerful [atomable cli
 
 If using command line tools is not your thing, well we still got your covered! Check out the code examples below to get started!
 
-## Source code | fork | pull request | issues
-https://github.com/atomable/runtime
+## issues & documentation
+https://github.com/atomable/atomable
 
 ## Installation
 
