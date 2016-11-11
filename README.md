@@ -1,3 +1,6 @@
+[![atomable](https://img.shields.io/badge/atomable.io--blue.svg)](http://atomable.io)
+[![Build Status](https://travis-ci.org/atomable/runtime.svg?branch=master)](https://travis-ci.org/atomable/runtime)
+
 ## atomable runtime
 
 This is the runtime for the atomable serverless microservices framework. Our goal is to make your serverless life easier!
@@ -6,12 +9,12 @@ The best way to use this runtime is by using our insanely powerful [atomable cli
 
 If using command line tools is not your thing, well we still got your covered! Check out the code examples below to get started!
 
-## Source code | fork | pull request | issues
-https://github.com/atomable/runtime
+## issues & documentation
+https://github.com/atomable/atomable
 
 ## Installation
 
-### [npm](https://www.npmjs.com/package/liftjs)
+### [npm](https://www.npmjs.com/package/atomable-runtime)
 ```
 npm install atomable-runtime
 ```
@@ -55,9 +58,7 @@ const runtime = require('atomable-runtime');
 /**
  * handler() handles aws lambda events
  */
-export const handler = (event, context, callback) => {
-  runtime.handle(event, context, callback);
-};
+export const handler = runtime.handle;
 ```
 
 `proton.js`
@@ -67,7 +68,7 @@ export const handler = (event, context, callback) => {
 // since we configured lastName to not be required, it may be undefined here
 module.exports.proton = (firstName, lastName) {
   // you can also return a promise, we will handle the result correctly.
-  return { status: 200, message: `Hello ${firstName} ${lastName}` };
+  return { statusCode : 200, body: `Hello ${firstName} ${lastName}` };
 };
 ```
 

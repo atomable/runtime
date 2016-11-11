@@ -1,4 +1,6 @@
-import should from 'should';
+/* global it describe */
+
+import should from 'should'; //eslint-disable-line
 
 import { buildModuleParameters } from '../dist/buildModuleParameters';
 
@@ -12,7 +14,7 @@ describe('build module parameters', () => {
   });
 
   it('should return all objects if wildcard', () => {
-    buildModuleParameters({ parameters: [{ in: 'headers', name: '*' }] }, { method: 'GET', parameters: { headers: { test: true, value: "asd" } } }).parameters.should.eql([{ test: true, value: 'asd' }]);
+    buildModuleParameters({ parameters: [{ in: 'headers', name: '*' }] }, { method: 'GET', parameters: { headers: { test: true, value: 'asd' } } }).parameters.should.eql([{ test: true, value: 'asd' }]);
   });
 
   it('should return empty object if not exist and optional', () => {

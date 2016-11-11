@@ -1,21 +1,22 @@
-import { Maybe } from 'liftjs';
-import { Result } from './result';
+import { Maybe } from 'liftjs'; // eslint-disable-line
 
 const routeMatchesEvent = (route, event) =>
-  route.path.toLowerCase() === event.path.toLowerCase() &&
-    (event.method === undefined ? true : route.method.toLowerCase() === event.method.toLowerCase());
+  (route.path.toLowerCase() === event.path.toLowerCase()
+    && (event.method === undefined || route.method.toLowerCase() === event.method.toLowerCase()));
 
-export const resolveRoute = (configs, event) => {
-  const config = configs.filter(config => {
-    return Maybe(config.https)
-      .map(route => routeMatchesEvent(route, event))
-      .or(false);
-  });
+export const resolveRoute = (configs, event) => { // eslint-disable-line
+  const config =
+    configs.filter(config => // eslint-disable-line
+      Maybe(config.https)
+        .map(route => routeMatchesEvent(route, event))
+        .or(false));
 
   if (config.length === 0) {
-    return { status: 404, message: 'not found' };
-  } else if (config.length > 1) {
-    return { status: 500, message: 'multiple routes matched' };
+    return { statusCode: 404, body: 'not found' };
+  }
+
+  if (config.length > 1) {
+    return { statusCode: 500, body: 'multiple routes matched' };
   }
 
   const matchedConfig = config[0];

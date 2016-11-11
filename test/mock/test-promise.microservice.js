@@ -1,5 +1,2 @@
-module.exports = (body, query, headers) => {
-    return new Promise((resolve, reject) => {
-        resolve({ body, query, headers });
-    });
-};
+module.exports = (body, query, headers) =>
+    new Promise(resolve => resolve({ body, query, headers }));

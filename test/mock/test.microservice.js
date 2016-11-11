@@ -1,3 +1,2 @@
-module.exports = (body, query, headers) => {
-    return { body, query, headers };
-};
+module.exports = (body, query, headers) =>
+    ({ body, query, headers });
