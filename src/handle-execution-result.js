@@ -2,7 +2,7 @@ const isPromise = obj =>
   (typeof obj !== 'undefined' && typeof obj.then === 'function');
 
 const buildSuccessResponse = result =>
-  (result.statusCode && result.body ? result : { statusCode: 200, body: result });
+  (result && result.statusCode && result.body ? result : { statusCode: 200, body: result || '' });
 
 const buildFailureResponse = err =>
   ({ statusCode: err.statusCode || 500, body: err.message || err });

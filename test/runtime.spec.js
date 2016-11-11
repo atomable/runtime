@@ -37,6 +37,26 @@ describe('A runtime', () => {
     });
   });
 
+  it('should return OK when nothing is returned from module', (done) => {
+    register(() => { },
+      {
+        name: 'empty',
+        https: {
+          path: '/empty',
+          method: 'get',
+        },
+      });
+
+    handle({ path: 'empty', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
+      try {
+        data.should.be.eql({ statusCode: 200, body: '' });
+        done();
+      } catch (err) {
+        done(err);
+      }
+    });
+  });
+
   it('should return error when module throws', (done) => {
     register(() => {
       throw new Error('this exploded');
