@@ -1,5 +1,7 @@
 [![atomable](https://img.shields.io/badge/atomable.io--blue.svg)](http://atomable.io)
+[![npm](https://img.shields.io/badge/npm-atomable-lightgrey.svg)](https://www.npmjs.com/package/atomable-runtime)
 [![Build Status](https://travis-ci.org/atomable/runtime.svg?branch=master)](https://travis-ci.org/atomable/runtime)
+[![Join the chat at https://gitter.im/atomable/atomable](https://badges.gitter.im/atomable/atomable.svg)](https://gitter.im/atomable/atomable?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## atomable runtime
 
@@ -9,8 +11,11 @@ The best way to use this runtime is by using our insanely powerful [atomable cli
 
 If using command line tools is not your thing, well we still got your covered! Check out the code examples below to get started!
 
-## issues & documentation
+## Documentation
 https://github.com/atomable/atomable
+
+## Source code | fork | pull request | issues
+https://github.com/atomable/runtime
 
 ## Installation
 
@@ -96,8 +101,10 @@ Here is a list of things we want to do in this project, feel free to help us out
 - Support multiple cloud providers
 
 ## Links
-- [atomable.io](atomable.io)
+- [atomable.io](https://atomable.io)
+- [atomable cli](https://github.com/atomable/atomable)
 - [npm](https://www.npmjs.com/package/atomable-runtime)
+- [travis](https://travis-ci.org/atomable)
 
 ## License
 
