@@ -101,7 +101,7 @@ Here is a list of things we want to do in this project, feel free to help us out
 - Support multiple cloud providers
 
 ## Links
-- [atomable.io](https://atomable.io)
+- [atomable.io](http://atomable.io)
 - [atomable cli](https://github.com/atomable/atomable)
 - [npm](https://www.npmjs.com/package/atomable-runtime)
 - [travis](https://travis-ci.org/atomable)
