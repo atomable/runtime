@@ -2,7 +2,7 @@ import { Maybe } from 'liftjs'; // eslint-disable-line
 
 export const runValidators = (route, event) => { // eslint-disable-line
   if (route.parameters && route.parameters.length > 0) {
-    route.parameters.forEach(parameter => { // eslint-disable-line
+    route.parameters.forEach((parameter) => {
       if (parameter.validators && parameter.validators.length > 0) {
         const value =
           Maybe(event[parameter.in])
