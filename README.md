@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/badge/npm-atomable-lightgrey.svg)](https://www.npmjs.com/package/atomable-runtime)
 [![Build Status](https://travis-ci.org/atomable/runtime.svg?branch=master)](https://travis-ci.org/atomable/runtime)
 [![Join the chat at https://gitter.im/atomable/atomable](https://badges.gitter.im/atomable/atomable.svg)](https://gitter.im/atomable/atomable?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+[![bitHound Overall Score](https://www.bithound.io/github/atomable/runtime/badges/score.svg)](https://www.bithound.io/github/atomable/runtime)
 ## atomable runtime
 
 This is the runtime for the atomable serverless microservices framework. Our goal is to make your serverless life easier!
