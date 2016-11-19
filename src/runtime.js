@@ -1,7 +1,7 @@
 import { router } from './router';
 import { buildEvent, normalize } from './build-event';
 
-const configs = [];
+let configs = [];
 
 const end = (error, res, callback) => {
   console.log('ATOMABLE END', res); // eslint-disable-line
@@ -24,6 +24,10 @@ const register = (func, config) => {
   configs.push(configToAdd);
 };
 
+const clear = () => {
+  configs = [];
+}
+
 const handle = (call, context, callback) => {
   console.log('ATOMABLE START', JSON.stringify(call, null, ' '), JSON.stringify(context, null, ' ')); // eslint-disable-line
   if (configs && configs.length > 0) {
@@ -35,5 +39,5 @@ const handle = (call, context, callback) => {
   }
 };
 
-export { register, handle };
+export { register, handle, clear };
 export default handle;
