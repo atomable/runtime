@@ -26,7 +26,7 @@ const register = (func, config) => {
 
 const clear = () => {
   configs = [];
-}
+};
 
 const handle = (call, context, callback) => {
   console.log('ATOMABLE START', JSON.stringify(call, null, ' '), JSON.stringify(context, null, ' ')); // eslint-disable-line
