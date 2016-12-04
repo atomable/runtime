@@ -4,7 +4,7 @@ import { buildEvent, normalize } from './build-event';
 let configs = [];
 
 const end = (error, res, callback) => {
-  console.log('ATOMABLE END', res); // eslint-disable-line
+  console.log('ATOMABLE END', error, res); // eslint-disable-line
   callback(error, res);
 };
 
