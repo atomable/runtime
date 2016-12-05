@@ -55,11 +55,11 @@ describe('A router', () => {
         res.should.be.eql({
           statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: {
+          body: JSON.stringify({
             body: parameters.body.bodyValue,
             query: parameters.query.queryValue,
             headers: parameters.headers,
-          },
+          }),
         }))
   })
 
@@ -70,11 +70,11 @@ describe('A router', () => {
         res.should.be.eql({
           statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: {
+          body: JSON.stringify({
             body: parameters.body.bodyValue,
             query: parameters.query.queryValue,
             headers: parameters.headers,
-          },
+          }),
         }))
   })
 
@@ -85,7 +85,11 @@ describe('A router', () => {
         res.should.be.eql({
           statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: { body: {}, query: parameters.query.queryValue, headers: parameters.headers },
+          body: JSON.stringify({
+            body: {},
+            query: parameters.query.queryValue,
+            headers: parameters.headers,
+          }),
         })
       })
   })
@@ -97,7 +101,7 @@ describe('A router', () => {
         res.should.be.eql({
           statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: { body: {}, query: parameters.query.queryValue, headers: {} },
+          body: JSON.stringify({ body: {}, query: parameters.query.queryValue, headers: {} }),
         }))
   })
 
@@ -108,11 +112,11 @@ describe('A router', () => {
         res.should.be.eql({
           statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: {
+          body: JSON.stringify({
             body: parameters.body.bodyValue,
             query: parameters.query.queryValue,
             headers: parameters.headers,
-          },
+          }),
         }))
   })
 
@@ -123,11 +127,11 @@ describe('A router', () => {
         res.should.be.eql({
           statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: {
+          body: JSON.stringify({
             body: {},
             query: parameters.query.queryValue,
             headers: parameters.headers,
-          },
+          }),
         }))
   })
 })

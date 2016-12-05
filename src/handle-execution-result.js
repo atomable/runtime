@@ -1,8 +1,17 @@
 const buildObjectResponse = (statusCode, headers, body) =>
-  ({ statusCode, headers, body })
+  ({ statusCode, headers, body: sanitizeBody(body) })
+
+const isObject = result =>
+  typeof result === 'object'
+
+const isString = result =>
+  typeof result === 'string'
 
 const isResponseObject = result =>
-  typeof result === 'object' && result.statusCode
+  isObject(result) && result.statusCode
+
+const sanitizeBody = body =>
+  (isString(body) ? body : JSON.stringify(body))
 
 const ensureDefaultProps = (result) => {
   const validResult = result || {
@@ -10,11 +19,12 @@ const ensureDefaultProps = (result) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: {},
+    body: '{}',
   }
 
   validResult.statusCode = validResult.statusCode || 200
   validResult.headers = Object.assign({ 'Content-Type': 'application/json' }, validResult.headers)
+  validResult.body = sanitizeBody(validResult.body)
 
   return validResult
 }
