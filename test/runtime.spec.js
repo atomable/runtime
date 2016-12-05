@@ -81,6 +81,7 @@ describe('A runtime', () => {
       try {
         data.should.be.eql({
           statusCode: 500,
+          headers: { 'Content-Type': 'application/json' },
           body: 'this exploded',
         });
         done();
@@ -128,6 +129,7 @@ describe('A runtime', () => {
     handle({ path: 'forbidden', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
         data.should.be.eql({
+          headers: { 'Content-Type': 'application/json' },
           statusCode: 401,
           body: 'forbidden',
         });

@@ -14,26 +14,26 @@ const sanitizeBody = body =>
   (isString(body) ? body : JSON.stringify(body))
 
 const ensureDefaultProps = (result) => {
-  const validResult = result || {
+  const validResult = Object.assign({
     statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
     },
     body: '{}',
-  }
+  }, result)
 
-  validResult.statusCode = validResult.statusCode || 200
-  validResult.headers = Object.assign({ 'Content-Type': 'application/json' }, validResult.headers)
-  validResult.body = sanitizeBody(validResult.body)
-
-  return validResult
+  return buildObjectResponse(validResult.statusCode || 200,
+    Object.assign({ 'Content-Type': 'application/json' }, validResult.headers),
+    validResult.body)
 }
 
 const buildSuccessResponse = result =>
-  (isResponseObject(result) ? ensureDefaultProps(result) : buildObjectResponse(200, { 'Content-Type': 'application/json' }, result))
+  (isResponseObject(result)
+    ? ensureDefaultProps(result)
+    : buildObjectResponse(200, { 'Content-Type': 'application/json' }, result))
 
 const buildFailureResponse = err =>
-  ({ statusCode: err.statusCode || 500, body: err.message || err })
+  buildObjectResponse(err.statusCode || 500, { 'Content-Type': 'application/json' }, err.message || err)
 
 const isPromise = promise =>
   (promise && typeof promise.then === 'function')
