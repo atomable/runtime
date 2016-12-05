@@ -1,5 +1,6 @@
 import { router } from './router'
 import { buildEvent, normalize } from './build-event'
+import pkg from '../package.json'
 
 let configs = []
 
@@ -15,6 +16,7 @@ const logToConsole = (message, data) =>
   console.log(message, toPrettyJson(data)) // eslint-disable-line
 
 const register = (func, config) => {
+  logToConsole('ATOMABLE VERSION', pkg.version)
   const configToAdd = Object.assign({}, config)
   logToConsole('ATOMABLE EXECUTING', { name: configToAdd.name, path: configToAdd.https.path })
   configToAdd.handler = (...args) =>
@@ -45,3 +47,4 @@ const handle = (call, context, callback) => {
 
 export { register, handle, clear }
 export default handle
+
