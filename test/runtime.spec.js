@@ -29,7 +29,11 @@ describe('A runtime', () => {
 
     handle({ path: 'proton/electron', httpMethod: 'post', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ statusCode: 200, body: 'hello world' });
+        data.should.be.eql({
+          statusCode: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: 'hello world',
+        });
         done();
       } catch (err) {
         done(err);
@@ -49,7 +53,11 @@ describe('A runtime', () => {
 
     handle({ path: 'empty', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ statusCode: 200, body: '' });
+        data.should.be.eql({
+          statusCode: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: undefined,
+        });
         done();
       } catch (err) {
         done(err);
@@ -71,7 +79,10 @@ describe('A runtime', () => {
 
     handle({ path: 'throw', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ statusCode: 500, body: 'this exploded' });
+        data.should.be.eql({
+          statusCode: 500,
+          body: 'this exploded',
+        });
         done();
       } catch (err) {
         done(err);
@@ -92,7 +103,11 @@ describe('A runtime', () => {
 
     handle({ path: 'unauthorized', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ statusCode: 403, body: 'unauthorized' });
+        data.should.be.eql({
+          statusCode: 403,
+          headers: { 'Content-Type': 'application/json' },
+          body: 'unauthorized',
+        });
         done();
       } catch (err) {
         done(err);
@@ -101,9 +116,7 @@ describe('A runtime', () => {
   });
 
   it('should use module\'s status code when thrown', (done) => {
-    register(() => {
-      throw { statusCode: 401, message: 'forbidden' }; // eslint-disable-line
-    },
+    register(() => { throw { statusCode: 401, message: 'forbidden', } }, // eslint-disable-line
       {
         name: 'forbidden',
         https: {
@@ -114,7 +127,10 @@ describe('A runtime', () => {
 
     handle({ path: 'forbidden', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
-        data.should.be.eql({ statusCode: 401, body: 'forbidden' });
+        data.should.be.eql({
+          statusCode: 401,
+          body: 'forbidden',
+        });
         done();
       } catch (err) {
         done(err);
