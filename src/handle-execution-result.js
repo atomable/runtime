@@ -1,3 +1,8 @@
+const defaultHeaders = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+}
+
 const buildObjectResponse = (statusCode, headers, body) =>
   ({ statusCode, headers, body: sanitizeBody(body) })
 
@@ -13,27 +18,25 @@ const isResponseObject = result =>
 const sanitizeBody = body =>
   (isString(body) ? body : JSON.stringify(body))
 
-const ensureDefaultProps = (result) => {
+const ensureDefaultProps = (result, defaultheaders) => {
   const validResult = Object.assign({
     statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: defaultheaders,
     body: '{}',
   }, result)
 
   return buildObjectResponse(validResult.statusCode || 200,
-    Object.assign({ 'Content-Type': 'application/json' }, validResult.headers),
+    Object.assign(defaultheaders, validResult.headers),
     validResult.body)
 }
 
 const buildSuccessResponse = result =>
   (isResponseObject(result)
-    ? ensureDefaultProps(result)
-    : buildObjectResponse(200, { 'Content-Type': 'application/json' }, result))
+    ? ensureDefaultProps(result, defaultHeaders)
+    : buildObjectResponse(200, defaultHeaders, result))
 
 const buildFailureResponse = err =>
-  buildObjectResponse(err.statusCode || 500, { 'Content-Type': 'application/json' }, err.message || err)
+  buildObjectResponse(err.statusCode || 500, defaultHeaders, err.message || err)
 
 const isPromise = promise =>
   (promise && typeof promise.then === 'function')

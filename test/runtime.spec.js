@@ -31,7 +31,7 @@ describe('A runtime', () => {
       try {
         data.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: 'hello world',
         });
         done();
@@ -55,7 +55,7 @@ describe('A runtime', () => {
       try {
         data.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: undefined,
         });
         done();
@@ -81,7 +81,7 @@ describe('A runtime', () => {
       try {
         data.should.be.eql({
           statusCode: 500,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: 'this exploded',
         });
         done();
@@ -106,7 +106,7 @@ describe('A runtime', () => {
       try {
         data.should.be.eql({
           statusCode: 403,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: 'unauthorized',
         });
         done();
@@ -129,7 +129,7 @@ describe('A runtime', () => {
     handle({ path: 'forbidden', httpMethod: 'get', parameters: {} }, {}, (error, data) => {
       try {
         data.should.be.eql({
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           statusCode: 401,
           body: 'forbidden',
         });

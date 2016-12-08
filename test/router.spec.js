@@ -16,7 +16,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 404,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: 'not found',
         })))
 
@@ -29,7 +29,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 404,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: 'not found',
         })),
   )
@@ -39,7 +39,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 400,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: 'missing required parameter',
         })))
 
@@ -54,7 +54,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({
             body: parameters.body.bodyValue,
             query: parameters.query.queryValue,
@@ -69,7 +69,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({
             body: parameters.body.bodyValue,
             query: parameters.query.queryValue,
@@ -84,7 +84,7 @@ describe('A router', () => {
       .then((res) => {
         res.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({
             body: {},
             query: parameters.query.queryValue,
@@ -100,7 +100,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({ body: {}, query: parameters.query.queryValue, headers: {} }),
         }))
   })
@@ -111,7 +111,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({
             body: parameters.body.bodyValue,
             query: parameters.query.queryValue,
@@ -126,7 +126,7 @@ describe('A router', () => {
       .then(res =>
         res.should.be.eql({
           statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({
             body: {},
             query: parameters.query.queryValue,

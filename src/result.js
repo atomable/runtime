@@ -9,6 +9,6 @@ export const Result = Monad((monad, value) => { // eslint-disable-line
   monad.bind = resultHasStatus ? () => monad : monad.bind; // eslint-disable-line
   monad.map = resultHasStatus ? () => monad : monad.map; // eslint-disable-line
   const run = monad.run;
-  value.headers = { 'Content-Type': 'application/json' };
+  value.headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' };
   monad.run = (func) => { (resultHasStatus ? () => { } : run)(value, func); return monad; }; // eslint-disable-line
 });
